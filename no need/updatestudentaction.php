@@ -3,43 +3,45 @@
 <html>
 	<head>
 		<title>Course Registration System</title>
+		
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	
 	<body>
 		
 		<header>
-			<?php include 'header.php'; ?>	
+		    <?php include 'header.php'; ?>
 		</header>
 		
 		<section>
 			<nav>
-				<ul>
-					<?php include 'navigation.php'; ?>
-				</ul>
+				<?php include 'navigation.php'; ?>
 			</nav>
 			
 			<article>
-				<h2 style="text-align: center">Insert Student Data into Database</h2>
+				<h2 style="text-align:center">Update Student Data in Database</h2>
 				<?php
-					$fullname = $_POST["fullname"];
-					$state = $_POST["state"];
-					$dateOfBirth = $_POST["birthdate"];
-					$faculty = $_POST["faculty"];
-					$email= $_POST["email"];
-					$address= $_POST["address"];
-					$stuid = date("yy").rand(100000,999999);
-					$yearReg = date("Y");
+				$stuid = $_POST["studentid"];
+				$stuname = $_POST["studentname"];
+				$dateOfBirth = $_POST["birthdate"];
+				$faculty = $_POST["faculty"];
+				$email= $_POST["email"];
+				$address= $_POST["address"];
+				$state =$_POST["state"];
 
-					$conn = OpenCon();
-					$sql = "INSERT INTO student (stuid,stuname, stubirthdate, stuemail, stuaddress, stustate, stufaculty, yearreg)
-							VALUES ($stuid, '$fullname', '$dateOfBirth', '$email', '$address', '$state', '$faculty', '$yearReg')";
-					   
-					if(mysqli_query($conn, $sql)) {
-						//	echo "New record \n";
-						//display back all the data that has been inserted.
-					$sql2 ="select * from student where stuid = $stuid";
-					
+				$conn = OpenCon();
+
+				$sql = "update student 
+						set stuname = '$stuname',
+							stubirthdate = '$dateOfBirth',
+							stuemail = '$email',
+							stuaddress = '$address',
+							stustate = '$state',
+							stufaculty = '$faculty'
+						where stuid = $stuid;";
+
+				$result = $conn->query($sql);
+				if ($result == true) {
+					$sql2 = "select * from student where stuid = $stuid";
 					$result = $conn->query($sql2);
 					if($result-> num_rows> 0) {
 						//output data of each row
@@ -54,7 +56,6 @@
 							$studentfaculty = $row["stufaculty"];
 							$studentemail = $row["stuemail"];
 							$studentaddress = $row["stuaddress"];
-							$yearregistration = $row["yearreg"];
 							
 							echo "<table>";
 							echo "<tr>";
@@ -89,21 +90,17 @@
 								echo "<td>Faculty</td>";
 								echo"<td>$studentfaculty</td>";
 							echo"</tr>";
-								echo "<tr>";
-								echo "<td>Year Registration</td>";
-								echo"<td>$yearregistration</td>";
-							echo"</tr>";
 						echo "</table>";
 						}
+					} else {
+						 echo "Data cannot be displayed";
 					}
-					}
-					else {
-						echo "Error : " . $sql. "<br>" . mysqli_error($conn);
-					}
+				}	else {
+					echo "Error: " .$sql . "<br>" . mysqli_error($conn);
+			   }
 					CloseCon($conn);
-
-			   ?>
-			   <table>
+				?>
+				<table>
 			   <tr>
 					<td colspan="2" align="center">
 				    <input type="button" value="Home" onclick="window.location.href='homepage.php'"/>
@@ -116,7 +113,5 @@
 		<footer>
 			<?php include 'footer.php'; ?>
 		</footer>	
-		
-		
 	</body>
 </html>

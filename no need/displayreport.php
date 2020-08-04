@@ -65,20 +65,19 @@
 					echo "<tr>";
 					echo "<th>Registration ID</th>";
 					echo "<th>Registration Date</th>";
-					echo "<th>Year</th>";
 					echo "<th>Student ID</th>";
 					echo "<th>Student Name</th>";
 					echo "<th>Course ID</th>";
 					echo "<th>Course Name</th>";
 					echo "<th>Action</th>";
+					echo "<th></th>";
 				echo"</tr>";
 
 				if($result-> num_rows > 0) {
 					//output data of each row
 					while($row = $result->fetch_assoc()){
 						$regid = $row["regid"];
-						$regdate = $row["regdate"];	
-						$yearregistration = $row["yearreg"];
+						$regdate =$row["regdate"];	
 						$studentid = $row["stuid"];
 						$studentname = $row["stuname"];
 						$courseid = $row["courseid"];
@@ -88,14 +87,13 @@
 					echo "<tr>";
 						echo "<td>$regid</td>";
 						echo "<td>$regdate</td>";
-						echo "<td>$yearregistration</td>";
 						echo "<td><a href=displaystudentdetails.php?studentid=$studentid>$studentid</a></td>";
 						echo "<td>$studentname</td>";
 						echo "<td><a href=displaycoursedetails.php?courseid=$courseid>$courseid</a></td>";
 						echo "<td>$coursename</td>";
-						echo "<td>" ?><button onclick="window.location.href='updateregdetails.php?regid=<?php echo $regid ?>'">UPDATE</button>
-									  <button id="PrintButton" onclick="PrintPage()">PRINT</button>
-									  <button value="Delete" onclick="confirmDelete('<?php echo $regid ?>')">DELETE</button><?php "</td>";
+						echo "<td>" ?><button onclick="window.location.href='updateregdetails.php?regid=<?php echo $regid ?>'"><img src="images/update.png" style="width: 20px; height: 20px;"></button>
+									  <button id="PrintButton" onclick="PrintPage()"><img src="images/printer.jpg" style="width: 20px; height: 20px;"></button>
+									  <button value="Delete" onclick="confirmDelete('<?php echo $regid ?>')"><img src="images/no.png" style="width: 20px; height: 20px;"></button><?php "</td>";
 				    echo "</tr>";
 					}
 				}else 
@@ -121,9 +119,10 @@
 		<footer>
 			<?php include 'footer.php'; ?>
 		</footer>	
-
+		
+		
 	</body>
-	
+
 <script type="text/javascript">
 	function PrintPage() {
 		window.print();

@@ -29,11 +29,10 @@
 					$email= $_POST["email"];
 					$address= $_POST["address"];
 					$stuid = date("yy").rand(100000,999999);
-					$yearReg = date("Y");
 
 					$conn = OpenCon();
-					$sql = "INSERT INTO student (stuid,stuname, stubirthdate, stuemail, stuaddress, stustate, stufaculty, yearreg)
-							VALUES ($stuid, '$fullname', '$dateOfBirth', '$email', '$address', '$state', '$faculty', '$yearReg')";
+					$sql = "INSERT INTO student (stuid,stuname, stubirthdate, stuemail, stuaddress, stustate, stufaculty)
+							VALUES ($stuid, '$fullname', '$dateOfBirth', '$email', '$address', '$state', '$faculty')";
 					   
 					if(mysqli_query($conn, $sql)) {
 						//	echo "New record \n";
@@ -54,7 +53,6 @@
 							$studentfaculty = $row["stufaculty"];
 							$studentemail = $row["stuemail"];
 							$studentaddress = $row["stuaddress"];
-							$yearregistration = $row["yearreg"];
 							
 							echo "<table>";
 							echo "<tr>";
@@ -88,10 +86,6 @@
 							echo "<tr>";
 								echo "<td>Faculty</td>";
 								echo"<td>$studentfaculty</td>";
-							echo"</tr>";
-								echo "<tr>";
-								echo "<td>Year Registration</td>";
-								echo"<td>$yearregistration</td>";
 							echo"</tr>";
 						echo "</table>";
 						}

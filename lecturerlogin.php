@@ -23,15 +23,12 @@
 				<form action="loginaction.php" id="form" method="POST">
 				<table>
 					<tr>
-						<td>Staff ID</td>
+						<td>Lecturer ID</td>
 						<td><input type="text" name="staffid" maxlength="10" placeholder="Staff ID" required></td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td><input type="password" name="password" maxlength="10" placeholder="Password" id="myInput" required></td>
-						
-						<!-- An element to toggle between password visibility -->
-						<td><input type="checkbox" onclick="myFunction()">Show Password</td>
+						<td><input type="password" name="password" maxlength="10" placeholder="Password" required></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
@@ -49,16 +46,11 @@
 </html> 
 			</article>
 		</section>
-	
-<script>
-function myFunction() {
-  var x = document.getElementById("myInput");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-</script>
-
+		
+		<footer>
+			<?php include 'footer.php'; ?>
+		</footer>	
+		
+		
+	</body>
 </html>

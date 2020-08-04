@@ -24,7 +24,7 @@
 				<table>
 					<tr>
 						<td>Search Data From Registration</td>
-						<td><input type="text" name="searchfield" maxlength="100" placeholder="search registration" required></td>
+						<td><input type="text" name="searchfield" maxlength="10" placeholder="search registration" required></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">

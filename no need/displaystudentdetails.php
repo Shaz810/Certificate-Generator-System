@@ -50,8 +50,6 @@
 						$studentfaculty = $row["stufaculty"];
 						$studentemail = $row["stuemail"];
 						$studentaddress = $row["stuaddress"];
-						$yearregistration = $row["yearreg"];
-						
 						echo "<table>";
 						echo "<tr>";
 							echo "<td>Student ID</td>";
@@ -84,10 +82,6 @@
 						echo "<tr>";
 							echo "<td>Faculty</td>";
 							echo"<td>$studentfaculty</td>";
-						echo"</tr>";
-						echo "<tr>";
-							echo "<td>Year Registration</td>";
-							echo"<td>$yearregistration</td>";
 						echo"</tr>";
 					echo "</table>";
 					}

@@ -8,6 +8,6 @@
 	<li><a href="insertnewcourse.php">Insert New Course</a></li>
 	<li><a href="displaycourse.php">Display Course</a></li>
 	<li><a href="searchfield.php">Search Field</a></li>
-	<li><a href="displayreport.php">Report</a></li>
+	<li><a href="displayreport.php">Display Report</a></li>
 	<li><a href="logout.php">Logout</a></li>
 </ul>

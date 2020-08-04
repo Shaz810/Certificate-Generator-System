@@ -65,10 +65,6 @@
 					<input type="radio" id="faculty plantation and agrotechnology" name="faculty" value="fpa" />Faculty Plantation and Agrotechnology<br>
 					<input type="radio" id="faculty science computer and mathemathics" name="faculty" value="fs" />Faculty Science Computer and Mathematics</td>
 				</tr>
-				<tr> 
-					<td>Year Registration</td> 
-					<td> <?php echo date("Y"); ?> </td>
-				</tr>
 				</table>
 				<table>
 				<tr>
