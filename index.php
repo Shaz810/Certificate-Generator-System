@@ -59,8 +59,8 @@
 		  <li><a href="#contact">Contact</a></li>
           <li class="menu-has-children"><a href="">Login</a>
             <ul>
-              <li><a href="#">Admin</a></li>
-              <li><a href="#">Lecturer</a></li>
+              <li><a href="adminlogin.php">Admin</a></li>
+              <li><a href="lecturerlogin.php">Lecturer</a></li>
             </ul>
           </li>
         </ul>
